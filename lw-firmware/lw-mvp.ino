@@ -1,4 +1,8 @@
 #include <EEPROM.h>
+#include <Wire.h>
+#include "libs/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp"
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
   Serial.begin(9600);
@@ -6,12 +10,22 @@ void setup() {
     ;
   }
   Serial.println(EEPROM.length());
+
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("TEST");
+  lcd.setCursor(0, 1);
+  lcd.print("LCD 1602");
 }
 
 int address = 0;
 char value;
 
 void loop() {
+  lcd.setCursor(0, 1);
+  lcd.print(millis()/1000);
+
   Serial.println("read...");
   for (address = 0; address < EEPROM.length(); address++) {
     value = EEPROM.read(address);
@@ -22,12 +36,14 @@ void loop() {
   }
 
   delay(3000);
+  exit(0);
+
   Serial.println("write...");
   for (address = 0; address < EEPROM.length(); address++) {
     value = address % 8;
-    EEPROM.write(address, value);
+    EEPROM.update(address, value);
   }
-  Serial.println("writed");
+  Serial.println("updated");
 
   delay(1000);
   Serial.println("exit");
