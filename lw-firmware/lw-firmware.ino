@@ -23,6 +23,17 @@ int address = 0;
 char value;
 
 void loop() {
+  for (;;) {
+    Serial.println();
+    Serial.print("lw-message-[");
+    Serial.print(millis());
+    Serial.print("]");
+    Serial.println();
+    delay(1000);
+  }
+
+  Serial.println("read...");
+
   lcd.setCursor(0, 1);
   lcd.print(millis()/1000);
 
