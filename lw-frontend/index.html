@@ -1,1 +1,49 @@
-...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Connect LW</button>
+  <script>
+    if (!("serial" in navigator)) {
+      alert("No serial support")
+    }
+
+    document.querySelector('button').addEventListener('click', async () => {
+      const filters = [
+        { usbVendorId: 0x2341, usbProductId: 0x0043 },
+        { usbVendorId: 0x2341, usbProductId: 0x0001 }
+      ];
+      // await navigator.serial.getPorts()
+      const port = await navigator.serial.requestPort({ filters });
+      await port.open({ baudRate: 115200 })
+
+      const { usbVendorId, usbProductId } = port.getInfo();
+      console.log(usbVendorId, usbProductId)
+
+      while (port.readable) {
+        const textDecoder = new TextDecoderStream();
+        const readableStreamClosed = port.readable.pipeTo(textDecoder.writable);
+        const reader = textDecoder.readable.getReader();
+
+        try {
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) {
+              reader.releaseLock();
+              break;
+            }
+            console.log(value); // Uint8Array
+          }
+        } catch (err) {
+          console.error(err)
+        }
+      }
+    });
+  </script>
+</body>
+</html>

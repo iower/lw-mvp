@@ -5,7 +5,7 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {
     ;
   }
