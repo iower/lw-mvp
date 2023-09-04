@@ -8,6 +8,10 @@
 </head>
 <body>
   <button>Connect LW</button>
+  </br>
+  </br>
+  <a href="#">GitHub | ★ 0</a>
+
   <script>
     if (!("serial" in navigator)) {
       alert("No serial support")
@@ -20,7 +24,10 @@
 
       let port
 
-      if (ports.length === 1) {
+      if (!ports.length) {
+        console.warn("No ports")
+        return
+      } else if (ports.length === 1) {
         port = ports[0]
       } else {
         const filters = [
