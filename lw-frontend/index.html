@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>HardWallet</title>
 </head>
 <body>
-  <button>Connect LW</button>
+  <button>Connect HW</button>
   </br>
-  <p>⣇⡀⡅⣗⡆⡖⠂⢮⡃⢇⢇⠇⣔⢲⢸⢸⠰⣝⠐⣗</p>
-  <h1>Welcome</h1>
+  <h1>⡧⢼⢠⣲⢰⠒⢠⣺⠸⡸⡸⢠⣲⢸⢸⠰⣝⠐⣗</h1>
   <p>welcome welcome</p>
   </br>
-  <a href="#">GitHub | ★ 0</a>
+  </br>
+  </br>
+  <a href="#">GitHub ★0</a>
 
   <script>
     if (!("serial" in navigator)) {
@@ -110,10 +111,10 @@
         ' ##',
       ],
       H: [
-        '# #',
-        '###',
-        '# #',
-        '# #',
+        '#  #',
+        '#  #',
+        '####',
+        '#  #',
       ],
       I: [
         '###',
@@ -191,7 +192,7 @@
         '#  #',
         '#  #',
         '#  #',
-        ' ## ',
+        ' ###',
       ],
       V: [
         '# #',
@@ -202,7 +203,7 @@
       W: [
         '# # #',
         '# # #',
-        '# # #',
+        ' # # ',
         ' # # ',
       ],
       X: [
@@ -224,14 +225,14 @@
         '###',
       ],
       a: [
-        '    ',
-        ' ###',
-        '#  #',
-        '## #',
+        '   ',
+        ' ##',
+        '# #',
+        '###',
       ],
       b: [
         '#  ',
-        '###',
+        '## ',
         '# #',
         '###',
       ],
@@ -314,10 +315,10 @@
         ' # ',
       ],
       p: [
-        '   ',
+        '  ',
         '###',
-        '# #',
-        '#  ',
+        '###',
+        '# ',
       ],
       q: [
         ' # ',
@@ -390,6 +391,108 @@
         '#  #',
         '  # ',
         '  # ',
+      ],
+      '!': [
+        '#',
+        '#',
+        ' ',
+        '#',
+      ],
+      '0': [
+        '###',
+        '# #',
+        '# #',
+        '###',
+      ],
+      '1': [
+        ' #',
+        '##',
+        ' #',
+        ' #',
+      ],
+      '2': [
+        ' # ',
+        '# #',
+        ' # ',
+        '###',
+      ],
+      '3': [
+        '###',
+        ' # ',
+        '  #',
+        '## ',
+      ],
+      '4': [
+        '# #',
+        '###',
+        '  #',
+        '  #',
+      ],
+      '5': [
+        '###',
+        '## ',
+        '  #',
+        '## ',
+      ],
+      '6': [
+        ' ##',
+        '## ',
+        '# #',
+        '###',
+      ],
+      '7': [
+        '###',
+        '  #',
+        ' # ',
+        ' # ',
+      ],
+      '8': [
+        '###',
+        '# #',
+        '###',
+        '###',
+      ],
+      '9': [
+        '###',
+        '###',
+        '  #',
+        '###',
+      ],
+      '(': [
+        ' #',
+        '# ',
+        '# ',
+        ' #',
+      ],
+      ')': [
+        '# ',
+        ' #',
+        ' #',
+        '# ',
+      ],
+      '.': [
+        ' ',
+        ' ',
+        ' ',
+        '#',
+      ],
+      ',': [
+        ' ',
+        ' ',
+        '##',
+        ' #',
+      ],
+      ',': [
+        '  ',
+        '  ',
+        '##',
+        ' #',
+      ],
+      '█': [
+        '###',
+        '###',
+        '###',
+        '###',
       ]
       /*
       A: [
@@ -426,7 +529,8 @@
       return result
     }
 
-    console.log(makeFont("LibreWallet"))
+    console.log(makeFont("Welcome to"))
+    console.log(makeFont("HardWallet"))
   </script>
   <style>
     * {
@@ -437,6 +541,7 @@
     body {
       background: #080a02;
       text-align: center;
+      font-family: monospace;
     }
     button {
       display: block;
@@ -447,13 +552,18 @@
       border: 2px solid currentColor;
       border-radius: 4px;
       box-shadow: -1px 1px 3px #2cb16e;
-      transition: all 0.3s ease;
     }
-    button:hover {
-      filter: brightness(1.2);
+    button,
+    a {
+      transition: all 0.2s ease;
     }
-    button:active {
-      filter: brightness(0.9);
+    button:hover,
+    a:hover {
+      filter: brightness(1.3);
+    }
+    button:active,
+    a:active {
+      filter: brightness(0.85);
     }
   </style>
 </body>
